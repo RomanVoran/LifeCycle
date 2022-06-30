@@ -34,11 +34,10 @@ class MainActivity2 : AppCompatActivity() {
         super.onResume()
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+    override fun onSaveInstanceState(outState: Bundle) {
         Log.d(Const.TAG, "Activity2 onSaveInstanceState")
-        super.onSaveInstanceState(outState, outPersistentState)
+        super.onSaveInstanceState(outState)
     }
-
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         Log.d(Const.TAG, "Activity2 onRestoreInstanceState")
         super.onRestoreInstanceState(savedInstanceState)

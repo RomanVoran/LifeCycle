@@ -6,6 +6,7 @@ import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
+import androidx.activity.viewModels
 import com.example.lifecycle.Const.TAG
 import com.example.lifecycle.databinding.ActivityMainBinding
 
@@ -13,10 +14,13 @@ class MainActivity1 : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val viewModel: Activity1ViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG, "Activity1 onCreate")
+        Log.d(TAG, "Activity1 onCreate bundle=$savedInstanceState")
         super.onCreate(savedInstanceState)
 
+        viewModel.s = "Soda"
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,9 +47,9 @@ class MainActivity1 : AppCompatActivity() {
         super.onResume()
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+    override fun onSaveInstanceState(outState: Bundle) {
         Log.d(TAG, "Activity1 onSaveInstanceState")
-        super.onSaveInstanceState(outState, outPersistentState)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
